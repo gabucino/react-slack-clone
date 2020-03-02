@@ -114,7 +114,7 @@ class Channels extends Component {
                 onClick={() => this.changeChannel(channel)}
                 name={channel.name}
                 style={{ opacity: 0.7 }}
-                active={channel.id === this.state.activeChannel}
+                active={this.props.currentChannel && channel.id === this.props.currentChannel.id}
             >
                 {this.getNotificationCount(channel) && (
                     <Label color="red">{this.getNotificationCount(channel)}</Label>
@@ -251,4 +251,10 @@ class Channels extends Component {
     }
 }
 
-export default connect(null, { setCurrentChannel, setPrivateChannel })(Channels);
+const mapStateToProps = state => {
+    return {
+        currentChannel: state.channel.currentChannel
+    }
+}
+
+export default connect(mapStateToProps, { setCurrentChannel, setPrivateChannel })(Channels);

@@ -1,12 +1,12 @@
-import React from "react";
-import { Grid } from "semantic-ui-react";
-import "./App.css";
-import { connect } from "react-redux";
+import React from "react"
+import { Grid } from "semantic-ui-react"
+import "./App.css"
+import { connect } from "react-redux"
 
-import ColorPanel from "./ColorPanel/ColorPanel";
-import SidePanel from "./SidePanel/SidePanel";
-import Messages from "./Messages/Messages";
-import MetaPanel from "./MetaPanel/MetaPanel";
+import ColorPanel from "./ColorPanel/ColorPanel"
+import SidePanel from "./SidePanel/SidePanel"
+import Messages from "./Messages/Messages"
+import MetaPanel from "./MetaPanel/MetaPanel"
 
 // prettier-ignore
 const App = ({ currentUser, currentChannel, isPrivateChannel, userPosts, primaryColor, secondaryColor }) => (
@@ -39,7 +39,7 @@ const App = ({ currentUser, currentChannel, isPrivateChannel, userPosts, primary
       />
     </Grid.Column>
   </Grid>
-);
+)
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser,
@@ -48,6 +48,6 @@ const mapStateToProps = state => ({
   userPosts: state.channel.userPosts,
   primaryColor: state.colors.primaryColor,
   secondaryColor: state.colors.secondaryColor
-});
+})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)
